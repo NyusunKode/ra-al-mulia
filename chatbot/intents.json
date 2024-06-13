@@ -1,0 +1,39 @@
+{
+    "intents": [
+        {
+            "tag": "sapaan",
+            "patterns": ["hai", "halo", "hei", "selamat pagi", "selamat siang", "selamat malam"],
+            "responses": ["Halo!", "Hei!", "Hai, bagaimana saya bisa membantu?", "Salam!"]
+        },
+        {
+            "tag": "selamat tinggal",
+            "patterns": ["selamat tinggal", "sampai jumpa", "dadah", "farewell"],
+            "responses": ["Selamat tinggal!", "Sampai jumpa!", "Hati-hati!", "Semoga harimu menyenangkan!"]
+        },
+        {
+            "tag": "terima kasih",
+            "patterns": ["terima kasih", "makasih", "saya menghargainya", "makasih banyak"],
+            "responses": ["Sama-sama!", "Tidak masalah!", "Kapan saja!", "Senang bisa membantu!"]
+        },
+        {
+            "tag": "umur",
+            "patterns": ["berapa umurmu?", "berapa usiamu?", "kamu berapa tahun?"],
+            "responses": ["Saya adalah program komputer, jadi saya tidak punya umur.", "Umur hanya angka untuk saya!", "Saya dibuat belum lama ini."]
+        },
+        {
+            "tag": "nama",
+            "patterns": ["siapa namamu?", "kamu siapa?", "bisa kasih tahu namamu?"],
+            "responses": ["Saya adalah chatbot yang ramah!", "Anda bisa memanggil saya Chatbot.", "Saya adalah asisten virtual."]
+        },
+        {
+            "tag": "bantuan",
+            "patterns": ["bisakah kamu membantu saya?", "saya butuh bantuan", "tolong bantu saya"],
+            "responses": ["Tentu! Apa yang Anda butuhkan?", "Saya di sini untuk membantu! Apa yang Anda butuhkan?", "Tentu, bagaimana saya bisa membantu hari ini?"]
+        },
+        {
+            "tag": "cuaca",
+            "patterns": ["bagaimana cuacanya?", "bagaimana keadaan cuaca?", "apakah hari ini akan hujan?"],
+            "responses": ["Saya tidak yakin tentang cuaca saat ini, tapi Anda bisa memeriksa laporan cuaca setempat!", "Saya sarankan untuk memeriksa aplikasi cuaca untuk pembaruan terbaru.", "Saya tidak memiliki informasi cuaca saat ini, tapi saya bisa membantu dengan pertanyaan lain."]
+        }
+    ]
+}
