@@ -21,4 +21,3 @@ use Illuminate\Support\Facades\Route;
 
 // Halaman Profile
 Route::get('/', [PagesController::class, 'homePage'])->name('homepage');
-Route::post('/send-message', [ChatbotController::class, 'sendMessage']);

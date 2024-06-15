@@ -33,6 +33,19 @@
             border-radius: 8px;
             background-color: #faeb93;
         }
+
+        .bot-message-error {
+            margin: 10px 60px 0 0;
+            padding: 8px 12px;
+            border-radius: 8px;
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        #chat-content {
+            height: 300px;
+            overflow-y: auto;
+        }
     </style>
 @endsection
 
@@ -48,11 +61,11 @@
                 Chatbot
             </div>
             <div class="px-2 card-body">
-                <div id="chat-content" style="height: 300px; overflow-y: auto;">
+                <div id="chat-content">
                     <p class="bot-message">Hai kamu, ada yang bisa saya bantu?</p>
                 </div>
                 <div class="input-group mt-3">
-                    <input type="text" class="form-control no-focus-outline boreder-0 " id="chat-input"
+                    <input type="text" class="form-control no-focus-outline border-0" id="chat-input"
                         placeholder="Type a message...">
                     <button class="btn btn-primary" id="send-btn">Send</button>
                 </div>
@@ -64,65 +77,69 @@
 @section('script')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        const chatInput = document.getElementById('chat-input');
+        const chatContent = document.getElementById('chat-content');
+
         document.getElementById('scroll-top').addEventListener('click', function(e) {
             e.preventDefault();
             var chatDropdown = document.getElementById('chat-dropdown');
-            if (chatDropdown.classList.contains('show')) {
-                chatDropdown.classList.remove('show');
-            } else {
-                chatDropdown.classList.add('show');
-            }
+            chatDropdown.classList.toggle('show'); // Use toggle to simplify show/hide
         });
 
-        document.getElementById('chat-input').addEventListener('keypress', function(event) {
+        chatInput.addEventListener('keypress', function(event) {
             if (event.key === 'Enter') {
                 event.preventDefault();
                 sendMessage();
             }
         });
 
-        document.getElementById('send-btn').addEventListener('click', function() {
-            sendMessage();
-        });
+        document.getElementById('send-btn').addEventListener('click', sendMessage);
 
         function sendMessage() {
-            const input = document.getElementById('chat-input').value.trim();
-            const content = document.getElementById('chat-content');
+            const input = chatInput.value.trim();
+            if (!input) return;
 
-            if (input) {
-                const p = document.createElement('p');
-                p.textContent = input;
-                p.classList.add('chat-message');
-                content.appendChild(p);
-                content.scrollTop = content.scrollHeight;
+            const userMessage = createMessageElement(input, 'chat-message');
+            chatContent.appendChild(userMessage);
+            chatContent.scrollTop = chatContent.scrollHeight;
 
-                // Kirim pesan ke backend Laravel
-                fetch('/send-message', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Accept': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            message: input
-                        })
+            fetch('http://localhost:3000/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        message: input
                     })
-                    .then(response => response.json())
-                    .then(data => {
-                        const botResponse = data.response;
-                        const botMessage = document.createElement('p');
-                        botMessage.textContent = botResponse;
-                        botMessage.classList.add('bot-message');
-                        content.appendChild(botMessage);
-                        content.scrollTop = content.scrollHeight;
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                    });
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const botResponse = data.response;
+                    const botMessage = createMessageElement(botResponse, 'bot-message');
+                    chatContent.appendChild(botMessage);
+                    chatContent.scrollTop = chatContent.scrollHeight;
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                    const errorMessage = createMessageElement('Oops! Something went wrong.', 'bot-message-error');
+                    chatContent.appendChild(errorMessage);
+                    chatContent.scrollTop = chatContent.scrollHeight;
+                });
 
-                // Clear input field
-                document.getElementById('chat-input').value = '';
-            }
+            chatInput.value = '';
+        }
+
+        function createMessageElement(text, className) {
+            const messageElement = document.createElement('p');
+            messageElement.textContent = text;
+            messageElement.classList.add(className);
+            return messageElement;
         }
     </script>
 @endsection

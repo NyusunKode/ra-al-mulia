@@ -6,6 +6,16 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
+// CORS middleware to allow requests from all origins (for local testing only)
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*"); // Replace with your frontend URL in production
+    res.header(
+        "Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept"
+    );
+    next();
+});
+
 app.post("/chat", (req, res) => {
     const { message } = req.body;
     if (!message) {
