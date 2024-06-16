@@ -497,8 +497,8 @@
 
                                 <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
                                     <div class="team-member d-flex align-items-start">
-                                        <div class="pic"><img src="assets/img/team/guru2.jpg" class="img-fluid"
-                                                alt=""></div>
+                                        <div class="pic"><img src="{{ asset('assets/img/team/guru2.jpg') }}"
+                                                class="img-fluid" alt="guru-2"></div>
                                         <div class="member-info">
                                             <h4>Rismatul Kasanah S.Psi</h4>
                                             <span>Tenaga Pendidik di RA AL MULIA</span>

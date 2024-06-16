@@ -22,13 +22,6 @@ class UserSeeder extends Seeder
                 'email' => 'admin@example.com',
                 'no_telp' => '081525932051',
                 'role' => 'admin'
-            ],
-            [
-                'name' => 'Guru',
-                'username' => 'guru',
-                'email' => 'guru@example.com',
-                'no_telp' => '08989342079',
-                'role' => 'guru'
             ]
         ];
 
