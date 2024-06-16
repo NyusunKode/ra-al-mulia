@@ -430,7 +430,7 @@
     <script src="{{ asset('admin-assets/js/sb-admin-2.min.js') }}"></script>
 
     <!-- Page level plugins -->
-    <script src="{{ asset('admins-assets/vendor/chart.js/Chart.min.js') }}"></script>
+    <script src="{{ asset('admin-assets/vendor/chart.js/Chart.min.js') }}"></script>
 
     <!-- Page level custom scripts -->
     <script src="{{ asset('admin-assets/js/demo/chart-area-demo.js') }}"></script>
