@@ -9,21 +9,15 @@
     <!-- Page Heading -->
     <div class="row align-items-center">
         <div class="col">
-            <h1 class="h3 mb-2 text-gray-800">Media dan Informasi</h1>
-        </div>
-        <div class="col-auto">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-tambah">Tambah</button>
+            <h1 class="h3 mb-2 text-gray-800">Registrasi</h1>
         </div>
     </div>
 
     <!-- Modal -->
-    @include('pages.admin.modals.add-modal')
-    @include('pages.admin.modals.edit-modal')
-
     <!-- DataTales Example -->
     <div class="card shadow mt-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Data Informasi</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Data Calon Peserta</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -31,23 +25,28 @@
                     <thead>
                         <tr>
                             <th class="text-center">No</th>
-                            <th class="text-center">judul</th>
-                            <th class="text-center">thumbnail</th>
-                            <th class="text-center">isi</th>
-                            <th class="text-center">aksi</th>
+                            <th class="text-center">Nama Calon Peserta</th>
+                            <th class="text-center">NIK</th>
+                            <th class="text-center">Jenis Kelamin</th>
+                            <th class="text-center">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($informasi as $index => $item)
+                        @foreach ($registration as $index => $item)
                             <tr>
                                 <td class="text-center">{{ $index + 1 }}</td>
-                                <td class="text-center">{{ $item->judul }}</td>
+                                <td class="text-center">{{ $item->nama_lengkap_anak }}</td>
+                                <td class="text-center">{{ $item->nik }}</td>
                                 <td class="text-center">
-                                    <img height="100" src="{{ asset('storage/' . $item->thumbnail) }}" alt="thumbnail">
+                                    @if ($item->jenis_kelamin == 0)
+                                        Laki Laki
+                                    @elseif($item->jenis_kelamin == 1)
+                                        Perempuan
+                                    @else
+                                        Undefined
+                                    @endif
                                 </td>
-                                <td class="text-center">
-                                    {{ substr($item->isi, 0, 150) }}{{ strlen($item->isi) > 150 ? '...' : '' }}
-                                </td>
+
                                 <td class="text-center">
                                     <div class="dropdown sub-dropdown">
                                         <button class="btn btn-link text-muted dropdown-toggle" type="button"
@@ -56,18 +55,16 @@
                                             <i data-feather="chevron-down"></i>
                                         </button>
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dd1">
-                                            <button type="button" data-toggle="modal"
-                                                data-target="#modal-edit-{{ $item->id }}" class="dropdown-item"
-                                                href="#">
-                                                <i class="text-success" data-feather="edit-2"></i> edit
-                                            </button>
-                                            <form action="{{ url('/informasi/delete/' . $item->id) }}" method="POST">
+                                            <form action="/accept-registration/{{ $item->id }}" method="POST">
                                                 @csrf
-                                                @method('delete')
-                                                <button class="dropdown-item" href="#">
-                                                    <i class="text-danger" data-feather="trash"></i> hapus
+                                                <button type="submit" class="dropdown-item" href="#">
+                                                    <i class="text-success" data-feather="check"></i> Konfirmasi
                                                 </button>
                                             </form>
+
+                                            <a class="dropdown-item" href="#">
+                                                <i class="text-danger" data-feather="x"></i> Tolak
+                                            </a>
                                         </div>
                                     </div>
                                 </td>

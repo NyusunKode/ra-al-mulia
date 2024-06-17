@@ -32,7 +32,7 @@
                         </div>
                     </div>
                     <div class="float-right">
-                        <button type="sumbit" data-toggle="modal" data-target="#bs-example-modal-lg"
+                        <button type="submit" data-toggle="modal" data-target="#bs-example-modal-lg"
                             class="btn btn-success mr-8" href="">Tambah</button>
                     </div>
                 </form>

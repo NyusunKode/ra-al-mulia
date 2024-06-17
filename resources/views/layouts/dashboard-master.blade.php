@@ -20,6 +20,21 @@
     <!-- Custom styles for this template-->
     <link href="{{ asset('admin-assets/css/sb-admin-2.min.css') }}" rel="stylesheet">
     <link href="{{ asset('admin-assets/css/sb-admin-2.css') }}" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"
+        integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
+        integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- END: Page CSS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css"
+        integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- BEGIN: Custom CSS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"
+        integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     @yield('style')
 </head>
 
@@ -36,10 +51,12 @@
         <hr class="sidebar-divider my-0">
 
         <!-- Nav Item - Dashboard -->
-        <li class="nav-item active">
+        <!-- Dashboard -->
+        <li class="nav-item {{ Request::is('dashboard') ? 'active' : '' }}">
             <a class="nav-link" href="/dashboard">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Dashboard</span></a>
+                <span>Dashboard</span>
+            </a>
         </li>
 
         <!-- Divider -->
@@ -50,16 +67,22 @@
             Data
         </div>
 
-        <li class="nav-item">
-            <a class="nav-link" href="/informasi">
+        <!-- Registrasi -->
+        <li class="nav-item {{ Request::is('registrasi*') ? 'active' : '' }}">
+            <a class="nav-link py-3 px-3" href="/registrasi">
+                <i class="fas fa-fw fa-users"></i>
+                <span>Registrasi</span>
+            </a>
+        </li>
+
+        <!-- Informasi -->
+        <li class="nav-item {{ Request::is('informasi*') ? 'active' : '' }}">
+            <a class="nav-link p-0 px-3" href="/informasi">
                 <i class="fas fa-fw fa-newspaper"></i>
-                <span>Informasi</span></a>
+                <span>Informasi</span>
+            </a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/informasi">
-                <i class="fas fa-fw fa-inbox"></i>
-                <span>Pesan</span></a>
-        </li>
+
     </ul>
     <!-- End of Sidebar -->
 
@@ -70,19 +93,6 @@
             <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle">
                 <i class="fa fa-bars"></i>
             </button>
-
-            <!-- Topbar Search -->
-            <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                <div class="input-group">
-                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                        aria-label="Search" aria-describedby="basic-addon2">
-                    <div class="input-group-append">
-                        <button class="btn btn-primary" type="button">
-                            <i class="fas fa-search fa-sm"></i>
-                        </button>
-                    </div>
-                </div>
-            </form>
 
             <!-- Topbar Navbar -->
             <ul class="navbar-nav ml-auto">
@@ -115,8 +125,8 @@
                 <li class="nav-item dropdown no-arrow">
                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                        <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                        <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ $user->name }}</span>
+                        <img class="img-profile rounded-circle" src="admin-assets/img/undraw_profile.svg">
                     </a>
                     <!-- Dropdown - User Information -->
                     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -216,6 +226,24 @@
     <!-- Page level custom scripts -->
     <script src="{{ asset('admin-assets/js/demo/chart-area-demo.js') }}"></script>
     <script src="{{ asset('admin-assets/js/demo/chart-pie-demo.js') }}"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"
+        integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
+        integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    @if (session('SUCCESS'))
+        <script>
+            toastr.success('{!! session('SUCCESS') !!}', 'Success!');
+        </script>
+    @endif
+    @if (session('ERROR'))
+        <script>
+            toastr.error('{!! session('ERROR') !!}', 'Error!');
+        </script>
+    @endif
     @yield('script')
 </body>
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\informasi;
+use App\Models\Registrasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -10,7 +11,9 @@ class PagesController extends Controller
 {
     public function homePage()
     {
-        return view('pages.home');
+        $informasi = Informasi::orderBy('id', 'DESC')->take(3)->get();
+
+        return view('pages.home', compact('informasi'));
     }
 
     public function loginPage()
@@ -42,17 +45,47 @@ class PagesController extends Controller
     {
         return view('pages.contact');
     }
+
+    public function registrationPage()
+    {
+        return view('pages.registration');
+    }
+
     public function dashboardPage()
     {
         $user = Auth::user();
         $roles = $user->roles->pluck('name');
+        $statusRegistration = Registrasi::where('id_user', $user->id)->first();
+
+        $registration = Registrasi::query()->get();
 
         if (!Auth::check()) {
             return redirect('/login');
         }
 
-        return view('pages.admin.dashboard', compact('user'));
+        if ($roles->contains('peserta')) {
+            if ($statusRegistration->status == array_search('false', Registrasi::getStatusOptions())) {
+                Auth::logout();
+                return redirect('/login')->with('ERROR', 'Pendaftaran belum dikonfirmasi oleh Admin.');
+            } else {
+                return view('pages.peserta.dashboard', compact('user', 'roles', 'registration'));
+            }
+        } else {
+            return view('pages.admin.dashboard', compact('user', 'roles'));
+        }
     }
+
+    public function registrasiPage()
+    {
+
+        $user = Auth::user();
+        $roles = $user->roles->pluck('name');
+
+        $registration = Registrasi::query()->get();
+
+        return view('pages.admin.registrasi', compact('user', 'roles', 'registration'));
+    }
+
     public function informasiPage()
     {
         $user = Auth::user();
@@ -62,7 +95,7 @@ class PagesController extends Controller
         if (!Auth::check()) {
             return redirect('/login');
         }
-        
+
         return view('pages.admin.informasi', compact('user', 'informasi'));
     }
 }
