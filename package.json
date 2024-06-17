@@ -11,6 +11,7 @@
         "vite": "^5.0.0"
     },
     "dependencies": {
+        "datatables.net-dt": "^2.0.8",
         "express": "^4.19.2"
     }
 }
