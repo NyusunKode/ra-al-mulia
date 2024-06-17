@@ -27,6 +27,10 @@ Route::get('/login', [PagesController::class, 'loginPage'])->name('login')->midd
 
 // Halaman Admin
 Route::get('/dashboard', [PagesController::class, 'dashboardPage'])->name('dashboard')->middleware('auth');
+Route::get('/informasi', [PagesController::class, 'informasiPage'])->name('informasi')->middleware('auth');
+Route::post('/informasi/insert', [InformasiController::class, 'addData'])->name('insertInformasi')->middleware('auth');
+Route::put('/informasi/edit/{id}', [InformasiController::class, 'updateData'])->name('editInformasi')->middleware('auth');
+Route::delete('/informasi/delete/{id}', [InformasiController::class, 'destroyData'])->name('destroyInformasi')->middleware('auth');
 
 // Controller Admin
 Route::post('/login', [AuthController::class, 'login']);
