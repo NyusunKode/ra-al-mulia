@@ -58,7 +58,7 @@
                 <span>Dashboard</span>
             </a>
         </li>
-
+        @if ($roles->contains('admin'))
         <!-- Divider -->
         <hr class="sidebar-divider">
 
@@ -82,6 +82,7 @@
                 <span>Informasi</span>
             </a>
         </li>
+        @endif
 
     </ul>
     <!-- End of Sidebar -->
