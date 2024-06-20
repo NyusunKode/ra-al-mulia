@@ -35,6 +35,7 @@ Route::get('/login', [PagesController::class, 'loginPage'])->name('login')->midd
 
 // Halaman Admin
 Route::get('/dashboard', [PagesController::class, 'dashboardPage'])->name('dashboard')->middleware('auth');
+Route::get('/detail-registrasi/{id}', [PagesController::class, 'detailPage'])->name('detail')->middleware('auth');
 Route::get('/registrasi', [PagesController::class, 'registrasiPage'])->name('registrasi')->middleware('auth');
 Route::get('/informasi', [PagesController::class, 'informasiPage'])->name('informasi')->middleware('auth');
 
