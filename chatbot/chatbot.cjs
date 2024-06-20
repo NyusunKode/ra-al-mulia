@@ -27,18 +27,20 @@ app.post("/chat", (req, res) => {
 });
 
 function handleChat(message) {
-    const intent = intents.intents.find((intent) =>
-        intent.patterns.some((pattern) =>
-            message.toLowerCase().includes(pattern)
-        )
-    );
+    const lowerCaseMessage = message.toLowerCase();
+    let matchedResponse = "Maaf, saya tidak mengerti pertanyaan Anda.";
 
-    if (intent) {
-        const responses = intent.responses;
-        return responses[Math.floor(Math.random() * responses.length)];
-    } else {
-        return "Maaf, saya tidak mengerti pertanyaan Anda.";
-    }
+    intents.intents.forEach(intent => {
+        intent.patterns.forEach(pattern => {
+            const regex = new RegExp('\\b' + pattern.toLowerCase() + '\\b', 'i');
+            if (regex.test(lowerCaseMessage)) {
+                const responses = intent.responses;
+                matchedResponse = responses[Math.floor(Math.random() * responses.length)];
+            }
+        });
+    });
+
+    return matchedResponse;
 }
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

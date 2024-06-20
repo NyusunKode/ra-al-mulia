@@ -211,7 +211,7 @@
                 <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
                     <div class="service-item position-relative">
                         <div class="icon"><i class="bi bi-backpack icon"></i></div>
-                        <h4><a href="" class="stretched-link">1 RUANG KELAS</a></h4>
+                        <h4>1 RUANG KELAS</h4>
                         <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
                     </div>
                 </div><!-- End Service Item -->
@@ -219,7 +219,7 @@
                 <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
                     <div class="service-item position-relative">
                         <div class="icon"><i class="bi bi-house-heart icon"></i></div>
-                        <h4><a href="" class="stretched-link">1 RUANG GURU </a></h4>
+                        <h4>1 RUANG GURU</h4>
                         <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
                     </div>
                 </div><!-- End Service Item -->
@@ -227,7 +227,7 @@
                 <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
                     <div class="service-item position-relative">
                         <div class="icon"><i class="bi bi-balloon icon"></i></div>
-                        <h4><a href="" class="stretched-link">TAMAN BERMAIN </a></h4>
+                        <h4>TAMAN BERMAIN</h4>
                         <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
                     </div>
                 </div><!-- End Service Item -->
@@ -235,7 +235,7 @@
                 <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
                     <div class="service-item position-relative">
                         <div class="icon"><i class="bi bi-activity icon"></i></div>
-                        <h4><a href="" class="stretched-link">MUSHOLLA</a></h4>
+                        <h4>MUSHOLLA</h4>
                         <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
                     </div>
                 </div><!-- End Service Item -->
@@ -415,7 +415,7 @@
 
             <div class="row gy-4">
 
-                <div class="col-lg-5">
+                <div class="col-lg-12">
 
                     <div class="info-wrap">
                         <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
@@ -445,53 +445,11 @@
 
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d997.2301072556247!2d116.85546856956637!3d-1.2155731591200356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2df149da63597ce1%3A0x59208d36c5702888!2sRA%20AL%20MULIA!5e0!3m2!1sid!2sid!4v1717241316162!5m2!1sid!2sid"
-                            width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                            width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
-
-                <div class="col-lg-7">
-                    <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up"
-                        data-aos-delay="200">
-                        <div class="row gy-4">
-
-                            <div class="col-md-6">
-                                <label for="name-field" class="pb-2">Nama</label>
-                                <input type="text" name="name" id="name-field" class="form-control"
-                                    required="">
-                            </div>
-
-                            <div class="col-md-6">
-                                <label for="email-field" class="pb-2">Email</label>
-                                <input type="email" class="form-control" name="email" id="email-field"
-                                    required="">
-                            </div>
-
-                            <div class="col-md-12">
-                                <label for="subject-field" class="pb-2">Subjek</label>
-                                <input type="text" class="form-control" name="subject" id="subject-field"
-                                    required="">
-                            </div>
-
-                            <div class="col-md-12">
-                                <label for="message-field" class="pb-2">Pesan </label>
-                                <textarea class="form-control" name="message" rows="10" id="message-field" required=""></textarea>
-                            </div>
-
-                            <div class="col-md-12 text-center">
-                                <div class="loading">Loading</div>
-                                <div class="error-message"></div>
-                                <div class="sent-message">Pesanmu akan dilihat. Teriamkasih!</div>
-
-                                <button type="submit">Kirim Pesan</button>
-                            </div>
-
-                        </div>
-                    </form>
-                </div><!-- End Contact Form -->
-
             </div>
-
         </div>
 
     </section><!-- /Contact Section -->

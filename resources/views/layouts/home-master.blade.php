@@ -9,8 +9,8 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="{{ asset('assets/img/favicon.png') }}" rel="icon">
+    <link href="{{ asset('assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -59,13 +59,14 @@
                             <i class="bi bi-chevron-down toggle-dropdown"></i>
                         </a>
                         <ul>
-                            <li><a href="/visi" class="nav-link">Visi dan Misi</a></li>
+                            {{-- <li><a href="/visi" class="nav-link">Visi dan Misi</a></li> --}}
                             <li><a href="/histori" class="nav-link">Sejarah Singkat</a></li>
                             <li><a href="/teacher" class="nav-link">Tenaga Pendidik</a></li>
                         </ul>
                     </li>
                     <li><a href="/information" class="nav-link">Media dan Informasi</a></li>
                     <li><a href="/facilities" class="nav-link">Sarana dan Prasarana</a></li>
+                    <li><a href="/registration" class="nav-link">Daftar</a></li>
                     <li><a href="/contact" class="nav-link">Kontak</a></li>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -76,31 +77,12 @@
         </div>
     </header>
 
-    <main class="main">
+    <main class="main mb-4">
         @yield('container')
         @include('components.chatbot')
     </main>
 
     <footer id="footer" class="footer">
-
-        <div class="footer-newsletter">
-            <div class="container">
-                <div class="row justify-content-center text-center">
-                    <div class="col-lg-6">
-                        <h4>Join Our Newsletter</h4>
-                        <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
-                        <form action="forms/newsletter.php" method="post" class="php-email-form">
-                            <div class="newsletter-form"><input type="email" name="email"><input type="submit"
-                                    value="Subscribe"></div>
-                            <div class="loading">Loading</div>
-                            <div class="error-message"></div>
-                            <div class="sent-message">Your subscription request has been sent. Thank you!</div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <div class="container footer-top">
             <div class="row gy-4">
                 <div class="col-lg-4 col-md-6 footer-about">
@@ -118,19 +100,20 @@
                 <div class="col-lg-2 col-md-3 footer-links">
                     <h4>Menu</h4>
                     <ul>
-                        <li><i class="bi bi-chevron-right"></i> <a href="#">Beranda</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="#">Media dan Informasi</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="#">Sarana dan Prasarana</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="#">Kontak</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="/">Beranda</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="/information">Media dan Informasi</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="/facilities">Sarana dan Prasarana</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="/registration">Daftar</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="/contact">Kontak</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-2 col-md-3 footer-links">
                     <h4>Tentang Kami</h4>
                     <ul>
-                        <li><i class="bi bi-chevron-right"></i> <a href="#">Visi dan Misi</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="#">Sejarah Singkat</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="#">Tenaga Pendidik</a></li>
+                        {{-- <li><i class="bi bi-chevron-right"></i> <a href="#">Visi dan Misi</a></li> --}}
+                        <li><i class="bi bi-chevron-right"></i> <a href="/histori">Sejarah Singkat</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="/teacher">Tenaga Pendidik</a></li>
                     </ul>
                 </div>
 
@@ -185,6 +168,27 @@
 
     <!-- Main JS File -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var currentUrl = window.location.pathname;
+            var navLinks = document.querySelectorAll('.nav-link');
+            var tentangKamiLink = document.querySelector('.tentang-kami-link');
+            var tentangKamiPages = ['/histori', '/teacher'];
+
+            navLinks.forEach(function(link) {
+                if (link.getAttribute('href') === currentUrl) {
+                    link.classList.add('active');
+                }
+            });
+
+            if (tentangKamiPages.includes(currentUrl)) {
+                tentangKamiLink.classList.add('active');
+            }
+        });
+    </script>
+
+    @yield('script')
 
 </body>
 
