@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('registrasis', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('id_user')->unsigned();
             $table->string('nama_lengkap_anak');
             $table->string('nama_panggilan_anak');
             $table->string('ttl_anak');
@@ -34,6 +35,8 @@ return new class extends Migration
             $table->string('sejarah_sakit')->nullable();
             $table->boolean('status')->nullable();
             $table->timestamps();
+
+            $table->foreign('id_user')->references('id')->on('users');
         });
     }
 

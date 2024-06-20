@@ -13,36 +13,36 @@ class RegistrasiController extends Controller
 {
     public function register(Request $request)
     {
-        try {
-            $validasi = $request->validate([
-                'name' => 'required|string|max:255',
-                'username' => 'required|string|max:255',
-                'email' => 'required|email|max:255',
-                'password' => 'required|string|min:8|confirmed',
-                'nama_lengkap_anak' => 'required|string|max:255',
-                'nama_panggilan_anak' => 'required|string|max:255',
-                'usia' => 'required|numeric',
-                'jenis_kelamin' => 'required|string|in:Laki-laki,Perempuan',
-                'agama' => 'required|string',
-                'anak_ke' => 'required|numeric|min:1',
-                'bersaudara' => 'required|numeric|min:1',
-                'status_dalam_keluarga' => 'required|string|max:255',
-                'ayah' => 'required|string|max:255',
-                'pekerjaan_ayah' => 'required|string|max:255',
-                'pendidikan_ayah' => 'required|string|max:255',
-                'alamat_ayah' => 'required|string|max:500',
-                'ibu' => 'required|string|max:255',
-                'pekerjaan_ibu' => 'required|string|max:255',
-                'pendidikan_ibu' => 'required|string|max:255',
-                'alamat_ibu' => 'required|string|max:500',
-                'no_hp_ortu' => 'required|numeric',
-            ]);
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'username' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'password' => 'required|string|min:8|confirmed',
+            'nama_lengkap_anak' => 'required|string|max:255',
+            'nama_panggilan_anak' => 'required|string|max:255',
+            'usia' => 'required|numeric',
+            'jenis_kelamin' => 'required|string|in:Laki-laki,Perempuan',
+            'agama' => 'required|string',
+            'anak_ke' => 'required|numeric|min:1',
+            'bersaudara' => 'required|numeric|min:1',
+            'status_dalam_keluarga' => 'required|string|max:255',
+            'ayah' => 'required|string|max:255',
+            'pekerjaan_ayah' => 'required|string|max:255',
+            'pendidikan_ayah' => 'required|string|max:255',
+            'alamat_ayah' => 'required|string|max:500',
+            'ibu' => 'required|string|max:255',
+            'pekerjaan_ibu' => 'required|string|max:255',
+            'pendidikan_ibu' => 'required|string|max:255',
+            'alamat_ibu' => 'required|string|max:500',
+            'no_hp_ortu' => 'required|numeric',
+        ]);
 
-            $ttl_anak = null;
-            if ($request->has('tempat_lahir_anak') && $request->has('tanggal_lahir_anak')) {
-                $formattedDateAnak = Carbon::createFromFormat('Y-m-d', $request->tanggal_lahir_anak)->format('d F Y');
-                $ttl_anak = $request->tempat_lahir_anak . ', ' . $formattedDateAnak;
-            }
+        $ttl_anak = null;
+        if ($request->has('tempat_lahir_anak') && $request->has('tanggal_lahir_anak')) {
+            $formattedDateAnak = Carbon::createFromFormat('Y-m-d', $request->tanggal_lahir_anak)->format('d F Y');
+            $ttl_anak = $request->tempat_lahir_anak . ', ' . $formattedDateAnak;
+        }
+        try {
 
             $user = new User();
             $user->name = $request->name;
@@ -77,14 +77,11 @@ class RegistrasiController extends Controller
                 'sejarah_sakit' => $request->sejarah_sakit,
                 'status' => array_search('false', Registrasi::getStatusOptions())
             ]);
-
-            return redirect()->back()->with('SUCCESS', 'Data anda berhasil didaftarkan.');
-        } catch (\Illuminate\Validation\ValidationException $e) {
-            return redirect()->back()->withErrors($e->errors())->withInput();
         } catch (\Exception $e) {
             Log::error('Error register:', ['error' => $e->getMessage()]);
             return redirect()->back()->with('ERROR', 'Gagal melakukan pendaftaran.');
         }
+        return redirect()->back()->with('SUCCESS', 'Data anda berhasil didaftarkan.');
     }
 
     public function acceptRegistration($id)
@@ -94,7 +91,6 @@ class RegistrasiController extends Controller
         try {
             $registration->status = array_search('true', Registrasi::getStatusOptions());
             $registration->save();
-
         } catch (\Exception $e) {
             Log::error('Error register:', ['error' => $e->getMessage()]);
             return redirect()->back()->with('ERROR', 'Gagal melakukan konfirmasi.');
