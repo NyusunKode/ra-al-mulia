@@ -57,8 +57,8 @@
                             </li>
                             <li class="d-flex align-items-center mb-3">
                                 <i data-feather="check-square"></i>
-                                <span class="fw-medium mx-2 text-heading">Nik :</span>
-                                <span>{{ $registration->nik }}</span>
+                                <span class="fw-medium mx-2 text-heading">Usia :</span>
+                                <span>{{ $registration->usia }}</span>
                             </li>
                             <li class="d-flex align-items-center mb-3">
                                 <i data-feather="check-square"></i>
@@ -67,8 +67,18 @@
                             </li>
                             <li class="d-flex align-items-center mb-3">
                                 <i data-feather="check-square"></i>
-                                <span class="fw-medium mx-2 text-heading">jenis kelamin :</span>
+                                <span class="fw-medium mx-2 text-heading">Jenis Kelamin :</span>
                                 <span>{{ $registration->jenis_kelamin }}</span>
+                            </li>
+                            <li class="d-flex align-items-center mb-3">
+                                <i data-feather="check-square"></i>
+                                <span class="fw-medium mx-2 text-heading">Anak Ke :</span>
+                                <span>{{ $registration->anak_ke }}</span>
+                            </li>
+                            <li class="d-flex align-items-center mb-3">
+                                <i data-feather="check-square"></i>
+                                <span class="fw-medium mx-2 text-heading">Jumlah Saudara :</span>
+                                <span>{{ $registration->bersaudara }}</span>
                             </li>
                             <li class="d-flex align-items-center mb-3">
                                 <i data-feather="check-square"></i>
@@ -77,8 +87,8 @@
                             </li>
                             <li class="d-flex align-items-center mb-3">
                                 <i data-feather="check-square"></i>
-                                <span class="fw-medium mx-2 text-heading">Pendidikan:</span>
-                                <span>{{ $registration->pendidikan_anak }}</span>
+                                <span class="fw-medium mx-2 text-heading">Status Dalam Keluarga :</span>
+                                <span>{{ $registration->status }}</span>
                             </li>
                         </ul>
                     </div>

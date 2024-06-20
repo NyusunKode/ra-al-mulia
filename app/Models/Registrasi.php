@@ -11,33 +11,28 @@ class Registrasi extends Model
 
     protected $table = "registrasis";
     protected $primaryKey = "id";
-
-    protected $enumStatus = [
-        'false',
-        'true'
-    ];
-
-    protected $enumJenisKelamin = [
-        'Laki Laki',
-        'Perempuan'
-    ];
-
     protected $fillable = [
         "id_user",
         "nama_lengkap_anak",
         "nama_panggilan_anak",
-        "nik",
-        "jenis_kelamin",
         "ttl_anak",
-        "anak_ke",
+        "usia",
+        "jenis_kelamin",
         "agama",
-        "pendidikan_anak",
-        "alamat_anak",
-        "ttl_ortu",
-        "pekerjaan_ortu",
-        "pendidikan_ortu",
-        "alamat_ortu",
-        "status"
+        "anak_ke",
+        "bersaudara",
+        "status_dalam_keluarga",
+        "ayah",
+        "pekerjaan_ayah",
+        "pendidikan_ayah",
+        "alamat_ayah",
+        "ibu",
+        "pekerjaan_ibu",
+        "pendidikan_ibu",
+        "alamat_ibu",
+        "no_hp_ortu",
+        "sejarah_sakit",
+        "status",
     ];
 
     public function user()
@@ -56,8 +51,20 @@ class Registrasi extends Model
     public static function getJenisKelaminOptions()
     {
         return [
-            'Laki Laki',
+            'Laki-laki',
             'Perempuan'
+        ];
+    }
+
+    public static function getAgama()
+    {
+        return [
+            'Islam',
+            'Kristen',
+            'Katolik',
+            'Hindu',
+            'Budha',
+            'Konghucu'
         ];
     }
 }

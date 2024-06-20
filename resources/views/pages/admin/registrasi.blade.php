@@ -26,7 +26,7 @@
                         <tr>
                             <th class="text-center">No</th>
                             <th class="text-center">Nama Calon Peserta</th>
-                            <th class="text-center">NIK</th>
+                            <th class="text-center">Tanggal Lahir</th>
                             <th class="text-center">Jenis Kelamin</th>
                             <th class="text-center">Actions</th>
                         </tr>
@@ -36,16 +36,8 @@
                             <tr>
                                 <td class="text-center">{{ $index + 1 }}</td>
                                 <td class="text-center">{{ $item->nama_lengkap_anak }}</td>
-                                <td class="text-center">{{ $item->nik }}</td>
-                                <td class="text-center">
-                                    @if ($item->jenis_kelamin == 0)
-                                        Laki Laki
-                                    @elseif($item->jenis_kelamin == 1)
-                                        Perempuan
-                                    @else
-                                        Undefined
-                                    @endif
-                                </td>
+                                <td class="text-center">{{ $item->ttl_anak }}</td>
+                                <td class="text-center">{{ $item->jenis_kelamin}}</td>
 
                                 <td class="text-center">
                                     <div class="dropdown sub-dropdown">
