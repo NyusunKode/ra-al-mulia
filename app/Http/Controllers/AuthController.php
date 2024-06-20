@@ -8,13 +8,14 @@ use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
-    public function login(Request $request) {
+    public function login(Request $request)
+    {
         $credentials = $request->validate([
             'username' => 'required',
             'password' => 'required'
         ]);
 
-        if(Auth::attempt($credentials)) {
+        if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             return redirect()->intended('/dashboard')->with('SUCCESS', 'Login berhasil');
         } else {

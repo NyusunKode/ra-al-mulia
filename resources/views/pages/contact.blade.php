@@ -8,7 +8,7 @@
 
     <body id="not-transparent">
         <!-- About Section -->
-        <section id="contact" class="contact section" style="margin: 8vh">
+        <section id="contact" class="contact section" style="margin-top: 8vh">
             <div class="page-title" data-aos="fade">
                 <div class="container">
                     <nav class="breadcrumbs">

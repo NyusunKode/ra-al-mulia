@@ -51,6 +51,22 @@ class PagesController extends Controller
         return view('pages.registration');
     }
 
+    public function informationPage()
+    {
+        $user = Auth::user();
+        $informasi = informasi::all();
+
+        return view('pages.information', compact('user', 'informasi'));
+    }
+
+    public function detailInformationPage($id)
+    {
+        $user = Auth::user();
+        $informasi = Informasi::find($id);
+
+        return view('pages.detail-information', compact('user', 'informasi'));
+    }
+
     public function dashboardPage()
     {
         $user = Auth::user();

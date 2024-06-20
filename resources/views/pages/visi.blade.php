@@ -1,4 +1,4 @@
-@extends('layouts.home-master')
+{{-- @extends('layouts.home-master')
 @section('title', 'Visi dan Misi')
 @section('style')
 @endsection
@@ -7,7 +7,7 @@
 
     <body id="not-transparent">
         <!-- About Section -->
-        <section id="about" class="about section" style="margin: 8vh">
+        <section id="about" class="about section" style="margin-top: 8vh">
             <div class="page-title" data-aos="fade">
                 <div class="container">
                     <nav class="breadcrumbs">
@@ -53,4 +53,4 @@
 @endsection
 
 @section('script')
-@endsection
+@endsection --}}
