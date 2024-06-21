@@ -1,0 +1,145 @@
+{
+    "intents": [
+        {
+            "tag": "tutorial daftar",
+            "patterns": [
+                "Daftar",
+                "Bagaimana cara mendaftar di RA Al Mulia?",
+                "Cara mendaftar online?",
+                "Bagaimana Alur pendaftaran online?",
+                "Bagaimana prosedur pendaftaran di RA Al Mulia?",
+                "Apa langkah-langkah untuk mendaftar di RA Al Mulia?"
+            ],
+            "responses": [
+                "Untuk mendaftar di RA Al Mulia, Anda dapat mengunjungi website sekolah kami untuk mengklik tombol daftar ,Setelah formulir diisi, silakan menunggu data pendaftaran divalidasi oleh pihak Ra Al Mulia."
+            ]
+        },
+        {
+            "tag": "waktu daftar",
+            "patterns": [
+                "Waktu Daftar",
+                "Kapan pendaftaran dibuka?",
+                "Tanggal brp pendaftaran dibuka?",
+                "Pendaftaran dimulai tanggal berapa?",
+                "Kapan saya bisa mendaftar di RA Al Mulia?",
+                "Periode pendaftaran RA Al Mulia kapan?"
+            ],
+            "responses": [
+                "Pendaftaran untuk tahun ajaran baru biasanya dibuka dari bulan April hingga Juni. Namun, untuk tanggal pastinya, silakan periksa informasi di situs web kami atau hubungi pihak admin Ra Al Mulia."
+            ]
+        },
+        {
+            "tag": "syarat pendaftaran",
+            "patterns": [
+                "Syarat Pendaftaran",
+                "Apa saja persyaratan pendaftaran?",
+                "Syarat pendaftaran apa saja?",
+                "Dokumen apa yang diperlukan untuk mendaftar?",
+                "Apa syarat-syarat untuk mendaftar di RA Al Mulia?"
+            ],
+            "responses": [
+                "Persyaratan pendaftaran di RA Al Mulia meliputi: 1. Fotokopi akta kelahiran anak 2. Fotokopi Kartu Keluarga 3. Pas foto terbaru anak ukuran 3x4 (2 lembar) 4. Formulir pendaftaran yang telah diisi. Untuk informasi lebih detail, Anda bisa mengunjungi halaman pendaftaran di situs web kami atau menghubungi bagian admin Ra Al Mulia"
+            ]
+        },
+        {
+            "tag": "biaya",
+            "patterns": [
+                "Biaya",
+                "Berapa rincian biaya pendaftaran?",
+                "Berapa biaya pendaftaran di RA Al Mulia?",
+                "Rincian biaya pendaftaran?",
+                "Berapa SPP yang harus dibayarkan?",
+                "Berapa biaya seragam sekolah?",
+                "Apakah biaya sekolah di RA Al Mulia sudah termasuk seragam dan buku pelajaran?",
+                "Apa biaya untuk mendaftar di Ra Al Mulia?",
+                "Berapa uang pendaftaran di Ra Al Mulia?",
+                "Apakah biaya di RA Al Mulia mencakup semuanya?",
+                "Biaya apa saja yang termasuk dalam pembayaran di RA Al Mulia?"
+            ],
+            "responses": [
+                "Berikut Untuk informasi terbaru mengenai biaya pendaftaran dan Rincian Biaya pendaftaran pada Ra Al Mulia: 1. Sarana Gedung = Rp.350.000 2. Seragam Biru Kotak = Rp.200.000 3. Seragam Olahraga = Rp.160.000 4. Seragam Batik = Rp.70.000 5. Sarana Belajar = Rp.400.000 6. SPP per bulan = Rp.120.000 Total = Rp.1.300.000"
+            ]
+        },
+        {
+            "tag": "batas umur",
+            "patterns": [
+                "Batas Umur",
+                "Apakah ada batasan usia untuk mendaftar?",
+                "Berapa batas usia untuk mendaftar?",
+                "Usia untuk mendaftar pada tk ini?",
+                "Usia berapa anak bisa mendaftar di Ra Al Mulia?",
+                "Anak saya umur 3 tahun, apakah bisa mendaftar di Ra Al Mulia?"
+            ],
+            "responses": [
+                "Anak-anak yang bisa mendaftar di RA Al Mulia biasanya berusia antara 4 hingga 6 tahun. Pastikan untuk memeriksa informasi terbaru di situs web kami atau menghubungi kami untuk detail lebih lanjut"
+            ]
+        },
+        {
+            "tag": "tes",
+            "patterns": ["Tes", "Apakah ada tes masuk untuk anak-anak?"],
+            "responses": [
+                "Di RA Al Mulia, tidak ada tes masuk yang formal untuk anak-anak. Namun, kami melakukan observasi singkat untuk memahami kebutuhan dan kemampuan anak sehingga kami dapat memberikan dukungan yang tepat selama mereka belajar bersama kami"
+            ]
+        },
+        {
+            "tag": "seleksi",
+            "patterns": [
+                "Proses Seleksi",
+                "Bagaimana proses seleksi pendaftaran?",
+                "Apakah ada seleksi pendaftaran?"
+            ],
+            "responses": [
+                "Proses seleksi pendaftaran di RA Al Mulia melibatkan beberapa langkah sederhana: 1. Pengisian dan pengumpulan formulir pendaftaran beserta dokumen pendukung. 2. Observasi singkat untuk memahami kebutuhan dan kemampuan anak. 3. Pembayaran biaya pendaftaran dan biaya lainnya sesuai informasi yang diberikan oleh bagian administrasi. 4. Konfirmasi penerimaan dari pihak sekolah"
+            ]
+        },
+        {
+            "tag": "program kunjungan",
+            "patterns": [
+                "Program Kunjungan",
+                "Apakah RA Al Mulia menyediakan program kunjungan sekolah sebelum mendaftar?",
+                "Apakah ada sesi kunjungan untuk melihat fasilitas RA Al Mulia?",
+                "Bisakah saya mengunjungi RA Al Mulia sebelum mendaftar?",
+                "Bagaimana cara mengatur kunjungan ke RA Al Mulia?"
+            ],
+            "responses": [
+                "Ya, kami menyambut orang tua dan calon siswa untuk mengunjungi sekolah kami. Anda dapat mengatur jadwal kunjungan dengan menghubungi bagian administrasi kami. Ini adalah kesempatan bagus untuk melihat fasilitas kami dan bertanya langsung kepada staf kami"
+            ]
+        },
+        {
+            "tag": "daftar program",
+            "patterns": [
+                "Daftar Program",
+                "Apa saja program yang ditawarkan di RA Al Mulia?",
+                "Program apa yang tersedia di RA Al Mulia?",
+                "Apa saja kegiatan di RA Al Mulia?"
+            ],
+            "responses": [
+                "RA Al Mulia menawarkan program pembelajaran yang mencakup pendidikan agama, pembelajaran akademik dasar, mengaji, seni, olahraga, dan pengembangan keterampilan sosial"
+            ]
+        },
+        {
+            "tag": "kurikulum",
+            "patterns": [
+                "Kurikulum",
+                "Bagaimana kurikulum di RA Al Mulia?",
+                "Kurikulum apa yang digunakan pada tk ini?",
+                "Fokus pembelajaran apa yg digunakan pada tk?",
+                "Kurikulum apa yang digunakan di RA Al Mulia?",
+                "Metode pembelajaran apa yang diterapkan di RA Al Mulia?"
+            ],
+            "responses": [
+                "Kurikulum di RA Al Mulia dirancang untuk memberikan pendidikan yang holistik dengan pendekatan belajar melalui bermain dan pembelajaran agama yang integratif. Kami fokus pada pengembangan karakter, kognitif, dan keterampilan sosial anak-anak"
+            ]
+        },
+        {
+            "tag": "study tour",
+            "patterns": [
+                "Study Tour",
+                "Apakah RA Al Mulia memiliki program study tour untuk anak-anak?"
+            ],
+            "responses": [
+                "Saat ini, RA Al Mulia memiliki program,kami memiliki berbagai kegiatan mengunjungi beberapa tempat sambil belajar mengenal alam yang dapat membantu mengembangkan minat dan bakat anak-anak"
+            ]
+        }
+    ]
+}
